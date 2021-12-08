@@ -9,5 +9,25 @@
     <br>Parent Star: {{planet.parentStar}}
 </span>
 
+<div>
+    <h2>Add planet to inventory (admins only)</h2>
+    <input #pass (keyup.enter) = "displayInput(pass.value); pass.value='' " >
+    <button (click) = "displayInput(pass.value); pass.value='' ">Get Access</button>
+
+    <div [ngClass]="showPlanetInfo ? 'show' : 'hide'">
+        <label for="planetName">Planet Name:</label>
+        <input type="text" #planetName ><br>
+        <label for="planetSize">Size (miles)</label>
+        <input type='number' #planetSize ><br>
+        <label for="planetParent">Parent Star</label>
+        <input type='text' #planetParent ><br>
+        <select name="planetType" id="planetType">
+            <option value="select">Select Type</option>
+            <option value="rocky">Rocky Planet</option>
+            <option value="gas">Gas Giant</option>
+            <option value="ice">Ice Giant</option>
+        </select>
+    </div>
+  </div>
 
 

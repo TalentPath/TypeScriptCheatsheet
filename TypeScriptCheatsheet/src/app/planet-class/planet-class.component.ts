@@ -12,8 +12,10 @@ import { RockyInfo, IceInfo, GasInfo, Info } from './interfaces'
 export class PlanetClassComponent implements OnInit {
   edit:boolean = false;
   fakePlanet: Planet = new Planet('Earth', 2000, 'Sol');
+  showPlanetInfo:boolean = false
   public listOfPlanets: Planet[] = [new Planet('Earth', 2000, 'Sol'), new Planet('Mars', 3000, 'Sol')]
 
+  
   constructor() { }
   ngOnInit(): void {
   }
@@ -30,5 +32,11 @@ export class PlanetClassComponent implements OnInit {
   editName(index:number, newName:string){
     this.listOfPlanets[index].newName = newName;
     this.editMode();
+  }
+
+  displayInput(password:string) {
+    if (password === '') {
+      this.showPlanetInfo = true
+    }
   }
 }
