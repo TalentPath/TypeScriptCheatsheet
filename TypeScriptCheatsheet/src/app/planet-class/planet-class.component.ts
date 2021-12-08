@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Planet } from './Planet';
+import { RockyInfo, IceInfo, GasInfo, Info } from './interfaces'
 
 @Component({
   selector: 'planet-class',
