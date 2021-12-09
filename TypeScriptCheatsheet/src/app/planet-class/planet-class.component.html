@@ -29,6 +29,45 @@
         </select>
     </div>
 
+    <div #gasMixture ngClass='checkbox-form'>
+        <div>
+            <input type="checkbox" #helium >
+            <label for='helium'>Helium</label>
+        </div>
+        <div>
+            <input type="checkbox" #hydrogen >
+            <label for='hydrogen'>Hydrogen</label>
+        </div>
+    </div>
+
+    <div #coreElements ngClass='checkbox-form'>
+        <div>
+            <input type="checkbox" #iron >
+            <label for='iron'>Iron</label>
+        </div>
+        <div>
+            <input type="checkbox" #nickel >
+            <label for='nickel'>Nickel</label>
+        </div>
+    </div>
+
+    <div #fluidElements ngClass='checkbox-form'>
+        <div>
+            <input type="checkbox" #water >
+            <label for='water'>Water</label>
+        </div>
+        <div>
+            <input type="checkbox" #methane >
+            <label for='methane'>Methane</label>
+        </div>
+        <div>
+            <input type="checkbox" #ammonia >
+            <label for='ammonia'>Ammonia</label>
+        </div>
+    </div>
+
+    <button #submitPlanetBtn ngClass='btn'>Submit</button>
+
     <div>
         
     </div>
