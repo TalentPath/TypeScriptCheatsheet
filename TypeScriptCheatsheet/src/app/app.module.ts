@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PlanetClassComponent } from './planet-class/planet-class.component';
+import { TutorialComponent } from './tutorial/tutorial.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlanetClassComponent
+    PlanetClassComponent,
+    TutorialComponent
   ],
   imports: [
     BrowserModule,

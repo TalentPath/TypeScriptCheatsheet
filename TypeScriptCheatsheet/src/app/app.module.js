@@ -11,13 +11,15 @@ const core_1 = require("@angular/core");
 const platform_browser_1 = require("@angular/platform-browser");
 const app_component_1 = require("./app.component");
 const planet_class_component_1 = require("./planet-class/planet-class.component");
+const tutorial_component_1 = require("./tutorial/tutorial.component");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, core_1.NgModule)({
         declarations: [
             app_component_1.AppComponent,
-            planet_class_component_1.PlanetClassComponent
+            planet_class_component_1.PlanetClassComponent,
+            tutorial_component_1.TutorialComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,
