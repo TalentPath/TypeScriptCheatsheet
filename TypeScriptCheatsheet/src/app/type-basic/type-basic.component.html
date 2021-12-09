@@ -45,22 +45,22 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut efficitur lacus. &#13;,&#10; Praesent ultricies at nulla vel pulvinar. Cras non enim ac felis semper gravida ac non nisi. Nam pretium ac augue et varius. Nullam varius elit fringilla, tincidunt lacus nec, pellentesque leo. Suspendisse euismod eros sit amet interdum mollis. Nullam faucibus magna in diam lacinia, id porta sem euismod. Ut pulvinar neque vitae purus hendrerit faucibus. Vivamus et eleifend tortor. Sed facilisis sem arcu, et mattis dui elementum at. Aenean imperdiet justo at nisl porttitor, id tempus ligula lobortis.
             </textarea> 
             <textarea #textarea (keyup.enter) = "terminalClick(textarea)" [(ngModel)]= 'currentText' > 
-                
+
             </textarea>
         </div>
         
         <div class="slideshow-container">
-            <div class="mySlides fade">
+            <div #slide1 class="mySlides fade" (click) = "myFunction(slide1,slide2)">
                 
-                <img id="image1" src="" style = "width: 100% ;">
+                <img id="image1" src=""  style = "width: 100%;">
                
             </div>
-            <div class="mySlides fade">
+            <div #slide2 class="mySlides fade"  (click) = "myFunction(slide2,slide3)" style = "display: none;">
                
-                <img id="image2" src="" style = "width:100%; " >
+                <img id="image2" src="" style = "width:100%;" >
         
             </div>
-            <div class="mySlides fade">
+            <div #slide3 class="mySlides fade"  (click) = "myFunction(slide3,slide1)" style="display:none ">
                 
                 <img id="image3" src="" style = "width:100%;">
           

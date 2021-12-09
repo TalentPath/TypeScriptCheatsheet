@@ -15,20 +15,20 @@ export function union(terminal: {text_area: HTMLTextAreaElement, arr: string[], 
         image2.src = 'assets/images/UnionOK.png';
         image3.src = 'assets/images/NotOKUnion.png';
     
-        var slideIndex = 0;
-        showSlides();
+        // var slideIndex = 0;
+        // showSlides();
     
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides")as HTMLCollectionOf<HTMLDivElement>;
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 8000); // Change image every 2 seconds
-        }
+        // function showSlides() {
+        //     var i;
+        //     var slides = document.getElementsByClassName("mySlides")as HTMLCollectionOf<HTMLDivElement>;
+        //     for (i = 0; i < slides.length; i++) {
+        //         slides[i].style.display = "none";
+        //     }
+        //     slideIndex++;
+        //     if (slideIndex > slides.length) { slideIndex = 1 }
+        //     slides[slideIndex - 1].style.display = "block";
+        //     setTimeout(showSlides, 8000); // Change image every 8 seconds
+        // }
 
 
 

@@ -37,7 +37,7 @@ item = null;        // TSC also accepts
 
 let thing = 5;      // TSC knows thing should be number
 thing.toString();   // Same as above, TSC knows about this method
-thing = "string";       !!! ERROR !!! thing has been determined to be number!
+thing = "string";   !!! ERROR !!! thing has been determined to be number!
     `);
 
 

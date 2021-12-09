@@ -16,19 +16,19 @@ export function typeAliases(terminal: {text_area: HTMLTextAreaElement, arr: stri
         image3.src = 'assets/images/Greetings.png';
         
         var slideIndex = 0;
-        showSlides();
+        // showSlides();
     
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLDivElement>;
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 8000); // Change image every 2 seconds
-        }
+        // function showSlides() {
+        //     var i;
+        //     var slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLDivElement>;
+        //     for (i = 0; i < slides.length; i++) {
+        //         slides[i].style.display = "none";
+        //     }
+        //     slideIndex++;
+        //     if (slideIndex > slides.length) { slideIndex = 1 }
+        //     slides[slideIndex - 1].style.display = "block";
+        //     setTimeout(showSlides, 8000); // Change image every 2 seconds
+        // }
         terminal.arr.length = 0;
     
         terminal.arr.push(`

@@ -60,5 +60,11 @@ initTerminal() {
       union(this.terminal);
   
 }
+myFunction(slide:HTMLElement,slideA:HTMLElement){
+  slide.style.display = "none";
+  slideA.style.display= "block";
+  
+
+}
 
 }
