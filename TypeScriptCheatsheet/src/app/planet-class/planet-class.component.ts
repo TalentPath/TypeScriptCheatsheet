@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Planet } from './Planet';
 import { RockyInfo, IceInfo, GasInfo, Info } from './interfaces'
 import GasGiant from "./GasGiant.js";
 import IceGiant from "./IceGiant.js";
 import RockyPlanet from "./RockyPlanet.js";
+import { ElementSchemaRegistry } from '@angular/compiler';
 
 @Component({
   selector: 'planet-class',
@@ -19,7 +20,7 @@ export class PlanetClassComponent implements OnInit {
   planetType:string = 'none'
   elements:string[] = []
   public listOfPlanets: Planet[] = [new RockyPlanet('Earth', 2000, 'Sol', ['Iron', 'Nickel'])]
-
+  // @ViewChild('planetName') inputName;
   
   constructor() { }
   ngOnInit(): void {
@@ -46,6 +47,7 @@ export class PlanetClassComponent implements OnInit {
     this.showPlanetInfo = false
     this.planetType = 'none'
     this.elements = []
+    // this.inputName.nativeElement.value = ''
   }
 
   editMode(){
@@ -64,12 +66,17 @@ export class PlanetClassComponent implements OnInit {
   }
 
   displayElements(type:string): void {
-    console.log(`triggered ${type}`)
+    this.elements = []
     this.planetType = type
   }
 
   addElement(element:string) {
-    this.elements.push(element)
+    if (this.elements.includes(element)) {
+      let index = this.elements.indexOf(element)
+      this.elements.splice(index, 1)
+    } else {
+      this.elements.push(element)
+    }
   }
 
   convertStringToNumber(input: string) { 

@@ -47,7 +47,11 @@
         <button 
             [ngClass] = "planetType != 'none' ? 'show' : 'hide'" 
             #submitPlanetBtn ngClass='btn' 
-            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, gases: elements})" 
+            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, gases: elements});
+            planetName.value = '';
+            planetSize.value='';
+            planetParent.value = '';
+            planetTypeDropdown.value = 'select' " 
             >Submit
         </button>
     </div>
@@ -64,7 +68,11 @@
         <button 
             [ngClass] = "planetType != 'none' ? 'show' : 'hide'" 
             #submitPlanetBtn ngClass='btn' 
-            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, coreComponents: elements})" 
+            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, coreComponents: elements}); 
+            planetName.value = '';
+            planetSize.value='';
+            planetParent.value = ''; 
+            planetTypeDropdown.value = 'select' " 
             >Submit
         </button>
     </div>
@@ -85,7 +93,11 @@
         <button 
             [ngClass] = "planetType != 'none' ? 'show' : 'hide'" 
             #submitPlanetBtn ngClass='btn' 
-            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, fluidElements: elements})" 
+            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, fluidElements: elements});
+            planetName.value = '';
+            planetSize.value='';
+            planetParent.value = '';
+            planetTypeDropdown.value = 'select' " 
             >Submit
         </button>
     </div>
