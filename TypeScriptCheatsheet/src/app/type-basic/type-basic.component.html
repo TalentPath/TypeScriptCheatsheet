@@ -43,11 +43,10 @@
         <div class="boxes">
             <textarea name="stuff" id="text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut efficitur lacus. &#13;,&#10; Praesent ultricies at nulla vel pulvinar. Cras non enim ac felis semper gravida ac non nisi. Nam pretium ac augue et varius. Nullam varius elit fringilla, tincidunt lacus nec, pellentesque leo. Suspendisse euismod eros sit amet interdum mollis. Nullam faucibus magna in diam lacinia, id porta sem euismod. Ut pulvinar neque vitae purus hendrerit faucibus. Vivamus et eleifend tortor. Sed facilisis sem arcu, et mattis dui elementum at. Aenean imperdiet justo at nisl porttitor, id tempus ligula lobortis.
+            </textarea> 
+            <textarea #textarea (keyup.enter) = "terminalClick(textarea)" [(ngModel)]= 'currentText' > 
+                
             </textarea>
-            <!-- <textarea (keyup.enter) = "terminalClick()" name="terminal" id="terminal">
-                {{currentText}} test {{terminal.index}}
-            </textarea> -->
-            <textarea (keyup.enter) = "terminalClick()" [(ngModel)]= 'currentText' > </textarea>
         </div>
         
         <div class="slideshow-container">

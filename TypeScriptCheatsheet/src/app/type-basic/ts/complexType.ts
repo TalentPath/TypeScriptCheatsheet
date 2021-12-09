@@ -1,6 +1,7 @@
 export function complexType(terminal: {text_area: HTMLTextAreaElement, arr: string[], index: number}):void
 {
-  let topic2 = document.getElementById('topic2') as HTMLElement
+  console.log(terminal)
+  let topic2 = document.getElementById('topic2') as HTMLButtonElement
   let image2 = document.getElementById('image2') as HTMLImageElement
   
   
@@ -41,10 +42,10 @@ export function complexType(terminal: {text_area: HTMLTextAreaElement, arr: stri
   
   // Pushing a number to zipcodes will generate an error
   // Error: Argument of type 'number' is not assignable to parameter of type 'string'.
-     console.log("One Dimentional array: \n");
+     console.log("One dimentional array: \n");
      console.log(zipcodes)
      zipcodes.push('77027');
-     console.log("One Dimentional array: \n");
+     console.log("One dimentional array: \n");
      console.log(zipcodes)
       `);
   
@@ -52,10 +53,10 @@ export function complexType(terminal: {text_area: HTMLTextAreaElement, arr: stri
       
       terminal.arr.push(`
       //  --------- Generic Type for One-Dimensional Array ---------
-      let zipcodess: Array<string> = ['77450', '77494', '77493', '77001'];
-      console.log("One Dimentional array: "+ zipcodess +'\n');
+      let zipcodes: Array<string> = ['77450', '77494', '77493', '77001'];
+      console.log("One dimentional array: "+ zipcodes +'\n');
       zipcodes.push('77027');
-      console.log("One Dimentional array: "+ zipcodess +'\n');
+      console.log("One dimentional array: "+ zipcodes +'\n');
       `);
       
           terminal.arr.push(`
@@ -76,6 +77,7 @@ export function complexType(terminal: {text_area: HTMLTextAreaElement, arr: stri
           `);
   
       terminal.text_area.value = terminal.arr[0];
+      console.log(terminal);
   
   
   
