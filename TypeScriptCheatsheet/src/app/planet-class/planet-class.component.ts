@@ -13,6 +13,8 @@ export class PlanetClassComponent implements OnInit {
   edit:boolean = false;
   fakePlanet: Planet = new Planet('Earth', 2000, 'Sol');
   showPlanetInfo:boolean = false
+  planetType:string = 'none'
+  elements:string[] = []
   public listOfPlanets: Planet[] = [new Planet('Earth', 2000, 'Sol'), new Planet('Mars', 3000, 'Sol')]
 
   
@@ -39,4 +41,20 @@ export class PlanetClassComponent implements OnInit {
       this.showPlanetInfo = true
     }
   }
+
+  displayElements(type:string): void {
+    console.log(`triggered ${type}`)
+    this.planetType = type
+  }
+
+  addElement(element:string) {
+    this.elements.push(element)
+  }
+
+  convertStringToNumber(input: string) { 
+    if (input.trim().length==0) { 
+        return NaN;
+    }
+    return Number(input);
+}
 }
