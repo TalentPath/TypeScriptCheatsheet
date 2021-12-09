@@ -7,6 +7,9 @@
     </h1>
     <p>Radius: {{planet.size}}
     <br>Parent Star: {{planet.parentStar}}
+    <br><span *ngIf="returnType(i) == 'rocky'">{{returnElements(planet)}}</span>
+    <span *ngIf="returnType(i) == 'gas'">{{returnElements(planet)}}</span>
+    <span *ngIf="returnType(i) == 'ice'">{{returnElements(planet)}}</span>
 </span>
 
 <div>

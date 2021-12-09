@@ -18,7 +18,7 @@ export class PlanetClassComponent implements OnInit {
   showPlanetInfo:boolean = false
   planetType:string = 'none'
   elements:string[] = []
-  public listOfPlanets: Planet[] = [new Planet('Earth', 2000, 'Sol'), new Planet('Mars', 3000, 'Sol')]
+  public listOfPlanets: Planet[] = [new RockyPlanet('Earth', 2000, 'Sol', ['Iron', 'Nickel'])]
 
   
   constructor() { }
@@ -74,4 +74,24 @@ export class PlanetClassComponent implements OnInit {
     }
     return Number(input);
 }
+  returnType(index:number):string{
+    if(this.listOfPlanets[index] instanceof RockyPlanet){
+      return 'rocky';
+    }
+    else if(this.listOfPlanets[index] instanceof GasGiant)
+      return 'gas';
+    else if(this.listOfPlanets[index] instanceof IceGiant)
+      return 'ice'
+    return 'planet'
+  }
+
+  returnElements(planet:Planet|RockyPlanet|IceGiant|GasGiant):string{
+    if(planet instanceof RockyPlanet)
+      return planet.coreComp;
+    else if(planet instanceof GasGiant)
+      return planet.gasList;
+    else if(planet instanceof IceGiant)
+      return planet.fluids
+    return ''
+  }
 }
