@@ -168,6 +168,7 @@ If they are strict, the code above will complain about null and undefined values
     `);
 
         terminal.text_area.value = terminal.arr[0];
+
     })
 
     let str: string;
@@ -310,5 +311,5 @@ If they are strict, the code above will complain about null and undefined values
     {
         return 0;
     }
-
+    tuple_topic.dispatchEvent(new Event("click"));
 }

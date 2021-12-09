@@ -17,7 +17,7 @@ export function complexType(terminal: {text_area: HTMLTextAreaElement, arr: stri
       image1.src = 'assets/images/ObjTypeCT.png';
       image2.src = 'assets/images/complexType1.png';
       image3.src = 'assets/images/complexType2.png';
-      image3.classList.add("big");
+     
   
       var slideIndex = 0;
       // showSlides();
@@ -37,16 +37,16 @@ export function complexType(terminal: {text_area: HTMLTextAreaElement, arr: stri
   
       terminal.arr.push(`
   Topic: Complex Types
-  //  --------- One dimentional array  ---------
+  //  --------- One dimensional array  ---------
   // zipcodes is an array of strings
   let zipcodes: string[] = ['77450', '77494', '77493', '77001'];
   
   // Pushing a number to zipcodes will generate an error
   // Error: Argument of type 'number' is not assignable to parameter of type 'string'.
-     console.log("One dimentional array: \n");
+     console.log("One dimensional array: \n");
      console.log(zipcodes)
      zipcodes.push('77027');
-     console.log("One dimentional array: \n");
+     console.log("One dimensional array: \n");
      console.log(zipcodes)
       `);
   
@@ -55,9 +55,9 @@ export function complexType(terminal: {text_area: HTMLTextAreaElement, arr: stri
       terminal.arr.push(`
       //  --------- Generic Type for One-Dimensional Array ---------
       let zipcodes: Array<string> = ['77450', '77494', '77493', '77001'];
-      console.log("One dimentional array: "+ zipcodes +'\n');
+      console.log("One dimensional array: "+ zipcodes +'\n');
       zipcodes.push('77027');
-      console.log("One dimentional array: "+ zipcodes +'\n');
+      console.log("One dimensional array: "+ zipcodes +'\n');
       `);
       
           terminal.arr.push(`
@@ -84,27 +84,27 @@ export function complexType(terminal: {text_area: HTMLTextAreaElement, arr: stri
   
   })
 
-  topic2.dispatchEvent(new Event("click"));
+  // topic2.dispatchEvent(new Event("click"));
   
   
   
-   //  --------- One dimentional array  ---------
+   //  --------- One dimensional array  ---------
   // zipcodes is an array of strings
   let zipcodes: string[] = ['77450', '77494', '77493', '77001'];
    
   // Pushing a number to zipcodes will generate an error
   // Error: Argument of type 'number' is not assignable to parameter of type 'string'.
-      console.log("One Dimentional array: \n");
+      console.log("One dimensional array: \n");
       console.log(zipcodes)
       zipcodes.push('77027');
-      console.log("One Dimentional array: \n");
+      console.log("One dimensional array: \n");
       console.log(zipcodes)
   
   //  --------- Generic Type for One-Dimensional Array ---------
   let zipcodess: Array<string> = ['77450', '77494', '77493', '77001'];
-      console.log("One Dimentional array: "+ zipcodess +'\n');
+      console.log("One dimensional array: "+ zipcodess +'\n');
       zipcodes.push('77027');
-      console.log("One Dimentional array: "+ zipcodess +'\n');
+      console.log("One dimensional array: "+ zipcodess +'\n');
   
   //------------------Empty Array Initialization ------------------
   
