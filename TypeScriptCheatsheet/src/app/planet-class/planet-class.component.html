@@ -1,9 +1,9 @@
 <span *ngFor="let planet of listOfPlanets; let i = index">
     <h1>
-        Planet <span class="planet-name" [style.display]="edit? 'none': 'inline'">{{planet.planetName}}</span> 
-        <input type="text" value="{{planet.planetName}}" class="name-field" #newName [style.display]="edit? 'inline': 'none'">
-        <input type="button" value="Edit" class="name-edit" (click)="editMode()" [style.display]="edit? 'none': 'inline'">
-        <input type="button" value="OK" class="ok-button" [style.display]="edit? 'inline': 'none'" (click)="editName(i, newName.value)">
+        Planet <span class="planet-name" [style.display]="planet.edit? 'none': 'inline'">{{planet.planetName}}</span> 
+        <input type="text" value="{{planet.planetName}}" class="name-field" #newName [style.display]="planet.edit? 'inline': 'none'">
+        <input type="button" value="Edit" class="name-edit" (click)="editMode(i)" [style.display]="planet.edit? 'none': 'inline'">
+        <input type="button" value="OK" class="ok-button" [style.display]="planet.edit? 'inline': 'none'" (click)="editName(i, newName.value)">
     </h1>
     <p>Radius: {{planet.size}}
     <br>Parent Star: {{planet.parentStar}}

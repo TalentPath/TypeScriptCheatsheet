@@ -2,10 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Planet = void 0;
 class Planet {
-    constructor(name, size, parentStar) {
+    constructor(name, size, parentStar, edit) {
         this.name = name;
         this.size = size;
         this.parentStar = parentStar;
+        this.edit = edit;
     }
     get planetName() {
         return this.name;
@@ -15,6 +16,5 @@ class Planet {
     }
 }
 exports.Planet = Planet;
-Planet.listOfPlanets = [new Planet('Earth', 2000, 'Sol'), new Planet('Mars', 3000, 'Sol')];
 Planet.inventoryCount = 2000000000;
 Planet.purchasedPlanets = [];

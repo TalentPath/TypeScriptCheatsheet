@@ -16,37 +16,42 @@ const GasGiant_js_1 = __importDefault(require("./GasGiant.js"));
 const IceGiant_js_1 = __importDefault(require("./IceGiant.js"));
 const RockyPlanet_js_1 = __importDefault(require("./RockyPlanet.js"));
 let PlanetClassComponent = class PlanetClassComponent {
+    // @ViewChild('planetName') inputName;
     constructor() {
         this.edit = false;
-        this.fakePlanet = new Planet_1.Planet('Earth', 2000, 'Sol');
+        this.fakePlanet = new Planet_1.Planet('Earth', 2000, 'Sol', false);
         this.showPlanetInfo = false;
         this.planetType = 'none';
         this.elements = [];
-        this.listOfPlanets = [new RockyPlanet_js_1.default('Earth', 2000, 'Sol', ['Iron', 'Nickel'])];
+        this.listOfPlanets = [new RockyPlanet_js_1.default('Earth', 2000, 'Sol', false, ['Iron', 'Nickel'])];
     }
     ngOnInit() {
     }
     addPlanet(name, type, info) {
         let newPlanet;
         if (type === 'rocky') {
-            newPlanet = new RockyPlanet_js_1.default(name, info.size, info.parentStar, info.coreComponents);
+            newPlanet = new RockyPlanet_js_1.default(name, info.size, info.parentStar, false, info.coreComponents);
             this.listOfPlanets.push(newPlanet);
         }
         if (type === 'gas') {
-            newPlanet = new GasGiant_js_1.default(name, info.size, info.parentStar, info.gases);
+            newPlanet = new GasGiant_js_1.default(name, info.size, info.parentStar, false, info.gases);
             this.listOfPlanets.push(newPlanet);
         }
         if (type === 'ice') {
-            newPlanet = new IceGiant_js_1.default(name, info.size, info.parentStar, info.fluidElements);
+            newPlanet = new IceGiant_js_1.default(name, info.size, info.parentStar, false, info.fluidElements);
             this.listOfPlanets.push(newPlanet);
         }
+        this.showPlanetInfo = false;
+        this.planetType = 'none';
+        this.elements = [];
+        // this.inputName.nativeElement.value = ''
     }
-    editMode() {
-        this.edit = !this.edit;
+    editMode(index) {
+        this.listOfPlanets[index].edit = !this.listOfPlanets[index].edit;
     }
     editName(index, newName) {
         this.listOfPlanets[index].newName = newName;
-        this.editMode();
+        this.editMode(index);
     }
     displayInput(password) {
         if (password === '') {
@@ -54,11 +59,17 @@ let PlanetClassComponent = class PlanetClassComponent {
         }
     }
     displayElements(type) {
-        console.log(`triggered ${type}`);
+        this.elements = [];
         this.planetType = type;
     }
     addElement(element) {
-        this.elements.push(element);
+        if (this.elements.includes(element)) {
+            let index = this.elements.indexOf(element);
+            this.elements.splice(index, 1);
+        }
+        else {
+            this.elements.push(element);
+        }
     }
     convertStringToNumber(input) {
         if (input.trim().length == 0) {

@@ -15,11 +15,11 @@ import { ElementSchemaRegistry } from '@angular/compiler';
 
 export class PlanetClassComponent implements OnInit {
   edit:boolean = false;
-  fakePlanet: Planet = new Planet('Earth', 2000, 'Sol');
+  fakePlanet: Planet = new Planet('Earth', 2000, 'Sol', false);
   showPlanetInfo:boolean = false
   planetType:string = 'none'
   elements:string[] = []
-  public listOfPlanets: Planet[] = [new RockyPlanet('Earth', 2000, 'Sol', ['Iron', 'Nickel'])]
+  public listOfPlanets: Planet[] = [new RockyPlanet('Earth', 2000, 'Sol', false, ['Iron', 'Nickel'])]
   // @ViewChild('planetName') inputName;
   
   constructor() { }
@@ -30,17 +30,17 @@ export class PlanetClassComponent implements OnInit {
     let newPlanet:Planet
 
     if (type === 'rocky') {
-      newPlanet = new RockyPlanet(name, info.size, info.parentStar, (<RockyInfo>info).coreComponents);
+      newPlanet = new RockyPlanet(name, info.size, info.parentStar, false, (<RockyInfo>info).coreComponents);
         this.listOfPlanets.push(newPlanet);
     }
 
     if (type === 'gas') {
-      newPlanet = new GasGiant(name, info.size, info.parentStar, (<GasInfo>info).gases);
+      newPlanet = new GasGiant(name, info.size, info.parentStar, false, (<GasInfo>info).gases);
         this.listOfPlanets.push(newPlanet);
     }
 
     if (type === 'ice') {
-      newPlanet = new IceGiant(name, info.size, info.parentStar, (<IceInfo>info).fluidElements);
+      newPlanet = new IceGiant(name, info.size, info.parentStar, false, (<IceInfo>info).fluidElements);
         this.listOfPlanets.push(newPlanet);
     }
 
@@ -50,13 +50,13 @@ export class PlanetClassComponent implements OnInit {
     // this.inputName.nativeElement.value = ''
   }
 
-  editMode(){
-    this.edit = !this.edit
+  editMode(index:number){
+    this.listOfPlanets[index].edit = !this.listOfPlanets[index].edit
   }
 
   editName(index:number, newName:string){
     this.listOfPlanets[index].newName = newName;
-    this.editMode();
+    this.editMode(index);
   }
 
   displayInput(password:string) {

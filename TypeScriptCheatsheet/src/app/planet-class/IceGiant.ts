@@ -2,8 +2,8 @@ import { Planet } from "./Planet";
 
 export default class IceGiant extends Planet {
     fluidElements:string[];
-    constructor(name:string, size:number, parentStar:string, fluidElements:string[]) {
-        super(name, size, parentStar) 
+    constructor(name:string, size:number, parentStar:string, edit:boolean, fluidElements:string[]) {
+        super(name, size, parentStar, edit) 
         this.fluidElements = fluidElements;
     }
 
