@@ -15,9 +15,9 @@ export function typeInference(terminal: {text_area: HTMLTextAreaElement, arr: st
         text_area.innerHTML += 'This usually happens in 2 (really 3 or 4!) key places:';
         text_area.innerHTML += `&#13;&#10;`;
         text_area.innerHTML += 'Variable Initialization and Function Return';
-        image1.src = 'assets/images/tuples.png';
-        image2.src = 'assets/images/tuples.png';
-        image3.src = 'assets/images/tuples.png';
+        image1.src = 'assets/images/basic_inference.png';
+        image2.src = 'assets/images/function_inference.png';
+        image3.src = 'assets/images/contextual_inference.png';
     
         var slides: HTMLCollectionOf<HTMLDivElement> = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLDivElement>;
         slides[0].style.display = "block";
@@ -70,15 +70,15 @@ arr.forEach(item => Math.round(item));      !!! ERROR !!! TSC knows item is stri
     let item;
     
     item = 5;
-    item.toString();
+    item.toString();        // TSC knows "item" is "string" right now
     
-    item = null;
+    item = null;            // "item" is "any", so this is fine
     
     
     let thing = 5;
     thing.toString();
     
-    // thing = "string";
+    // thing = "string";       // TSC doesn't allow this!
     
     
     function doSomething(input = false)
@@ -91,8 +91,11 @@ arr.forEach(item => Math.round(item));      !!! ERROR !!! TSC knows item is stri
     
     let arr: string[] = ["1", "2", "3"];
     
-    arr.forEach(item => item.toUpperCase());
+    
+
+    
     // arr.forEach(item => Math.round(item));
+    arr.forEach(item => item.toUpperCase());
     
     
     let container = [0, NaN, null];

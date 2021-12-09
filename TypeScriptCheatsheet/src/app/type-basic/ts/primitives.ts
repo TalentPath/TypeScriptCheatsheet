@@ -18,9 +18,9 @@ export function primitives(terminal: {text_area: HTMLTextAreaElement, arr: strin
         text_area.innerHTML += `&#13;&#10;`;
         text_area.innerHTML += `In TS, the TSConfig plays a huge role in what is fine for primitives`;
 
-        image1.src = 'assets/images/tuples.png';
-        image2.src = 'assets/images/tuples.png';
-        image3.src = 'assets/images/tuples.png';
+        image1.src = 'assets/images/strings.png';
+        image2.src = 'assets/images/numbers.png';
+        image3.src = 'assets/images/booleans.png';
     
         var slides: HTMLCollectionOf<HTMLDivElement> = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLDivElement>;
         slides[0].style.display = "block";
