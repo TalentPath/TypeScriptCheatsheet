@@ -11,8 +11,11 @@
 
 <div>
     <h2>Add planet to inventory (admins only)</h2>
-    <input #pass (keyup.enter) = "displayInput(pass.value); pass.value='' " >
-    <button (click) = "displayInput(pass.value); pass.value='' ">Get Access</button>
+    <div #accessDiv [ngClass]="showPlanetInfo ? 'hide' : 'show'">
+        <input #pass (keyup.enter) = "displayInput(pass.value); pass.value='' " >
+        <button (click) = "displayInput(pass.value); pass.value='' ">Get Access</button>
+    </div>
+    
 
     <div [ngClass]="showPlanetInfo ? 'show' : 'hide'">
         <label for="planetName">Planet Name:</label>

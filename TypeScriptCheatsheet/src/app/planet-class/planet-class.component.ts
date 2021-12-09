@@ -42,6 +42,10 @@ export class PlanetClassComponent implements OnInit {
       newPlanet = new IceGiant(name, info.size, info.parentStar, (<IceInfo>info).fluidElements);
         this.listOfPlanets.push(newPlanet);
     }
+
+    this.showPlanetInfo = false
+    this.planetType = 'none'
+    this.elements = []
   }
 
   editMode(){
