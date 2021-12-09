@@ -70,7 +70,7 @@
     
             <div class="code">
                 <h3>Valid</h3>
-                <p>const voter5: Partial&ltvoter&gt = &#123;</p>
+                <p>const voter5: Partial&lt;voter&gt; = &#123;</p>
                 <p class="indent">name: 'Joe',</p>       
                 <p class="indent">age: 25,</p>
                 <p class="indent">registered: true</p>
@@ -79,7 +79,7 @@
             </div><br>
             <div class="code">
                 <h3>Valid</h3>
-                <p>const voter6: Partial&ltVoter&gt = &#123;</p>
+                <p>const voter6: Partial&lt;Voter&gt; = &#123;</p>
                 <p class="indent">name: 'Timmy',</p>       
                 <p class="indent">age: 5</p>
                 <p>&#125;</p>
@@ -87,12 +87,12 @@
             </div><br>
             <div class="code">
                 <h3>Valid</h3>
-                <p>const voter7: Partial&ltVoter&gt = &#123;&#125;</p>
+                <p>const voter7: Partial&lt;Voter&gt; = &#123;&#125;</p>
                 <p>// With partials an empty object is valid since none of the properties are required</p>
             </div><br>
             <div class="code">
                 <h3>Invalid</h3>
-                <p>const voter8: Partial&ltVoter&gt = &#123;</p>
+                <p>const voter8: Partial&lt;Voter&gt; = &#123;</p>
                 <p class="indent">name: 'Courtney',</p>       
                 <p class="indent">age: 21,</p>
                 <p class="indent">registered: true,</p>
@@ -110,7 +110,7 @@
     
             <div class="code">
                 <h3>Valid</h3>
-                <p>const voter9: Required&ltvoter&gt = &#123;</p>
+                <p>const voter9: Required&lt;voter&gt; = &#123;</p>
                 <p class="indent">name: 'Joe',</p>       
                 <p class="indent">age: 25,</p>
                 <p class="indent">registered: true</p>
@@ -119,7 +119,7 @@
             </div><br>
             <div class="code">
                 <h3>Invalid</h3>
-                <p>const voter10: Required&ltVoter&gt = &#123;</p>
+                <p>const voter10: Required&lt;Voter&gt; = &#123;</p>
                 <p class="indent">name: 'Timmy',</p>       
                 <p class="indent">age: 5</p>
                 <p>&#125;</p>
@@ -129,12 +129,12 @@
             </div><br>
             <div class="code">
                 <h3>Invalid</h3>
-                <p>const voter11: Required&ltVoter&gt = &#123;&#125;</p>
+                <p>const voter11: Required&lt;Voter&gt; = &#123;&#125;</p>
                 <p>// All properites are required</p>
             </div><br>
             <div class="code">
                 <h3>Invalid</h3>
-                <p>const voter12: Required&ltVoter&gt = &#123;</p>
+                <p>const voter12: Required&lt;Voter&gt; = &#123;</p>
                 <p class="indent">name: 'Courtney',</p>       
                 <p class="indent">age: 21,</p>
                 <p class="indent">registered: true,</p>
@@ -162,30 +162,32 @@
             </h2>
             <div class="code">
             <label for="change">Change:</label>
-            <select name="change" id="change">
+            <select name="change" #change (change)="option = change.value">
                 <option value="Partial">Partial</option>
                 <option value="Required">Required</option>
             </select>
             <form id="voter-form2">
                 <label class="indent" for="property">Property:</label>
-                <input id="property2" name="property" type="text"><br>
+                <input #property name="property" type="text"><br>
                 <label class="indent" for="value">Value:</label>
-                <input id="value2" name="value" type="text"><br>
-                <button id="form-button2" type="submit">Add</button>
+                <input #value name="value" type="text"><br>
+                <button id="form-button2" (click)="addProperty(property.value, value.value, $event); property.value = ''; value.value = ''" *ngIf="submit" type="submit">Add</button>
             </form>
-                <p id="begin">const voter: Partial&ltVoter&gt = &#123;</p>
-                <div id="voter-inner2"></div>
+                <p id="begin">const voter: <span>{{option}}</span>&lt;Voter&gt; = &#123;</p>
+                <div id="voter-inner2" *ngFor="let item of voterKeys; let i = index">
+                    <p class="indent">{{item}}: {{voterValues[i]}}</p>
+                </div>
                 <p>&#125;</p>
-                <div id="success2" style="display: none">
-                    <img src="../checkmark-24.png" width="16px">
+                <div id="success2" *ngIf="success">
+                    <img src="../../assets/images/checkmark-24.png" width="16px">
                     <p>You Got It!</p>
                 </div>
-                <div id="wrong2" style="display: none">
-                    <img src="../x-mark-24.png" width="16px">
+                <div id="wrong2" *ngIf="wrong">
+                    <img src="../../assets/images/x-mark-24.png" width="16px">
                     <p>Not Quite. Try again</p>
                 </div>
-                <button id="submit2">Submit</button>
-                <button id="reset2" style="visibility: hidden">Reset</button>
+                <button id="submit2" *ngIf="submit" (click)="checkAnswer($event)">Submit</button>
+                <button id="reset2" (click)="reset($event)" *ngIf="active">Reset</button>
             </div>
         </div>
         <div class="code">
@@ -198,7 +200,13 @@
                         <td>Registered</td>
                     </tr>
                 </thead>
-                <tbody id="voter-list2"></tbody>
+                <tbody id="voter-list2" *ngFor="let voter of voters">
+                    <tr>
+                        <td>{{voter.name ? voter.name : ''}}</td>
+                        <td>{{voter.age ? voter.age : ''}}</td>
+                        <td>{{voter.registered ? voter.registered : ''}}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 </div>
