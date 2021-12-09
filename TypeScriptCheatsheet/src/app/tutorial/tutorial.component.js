@@ -76,7 +76,7 @@ let TutorialComponent = class TutorialComponent {
         this.getteString = `class Planet {
     protected displayPlanet(): void {
       let planet = Planet.listOfPlanets[0]
-      let fluids = &lt;IceGiant&gt;planet.fluids
+      let fluids = <IceGiant>planet.fluids
     }
     
   }
@@ -95,7 +95,7 @@ let TutorialComponent = class TutorialComponent {
     private name:string
 
     protected displayPlanet(): void {
-      let newName = (&lt;HTMLInputElement&gt;someElement).value;
+      let newName = (<HTMLInputElement>someElement).value;
       Planet.listOfPlanets[planetIndex].planetName = newName;
     }
 
@@ -113,9 +113,9 @@ let TutorialComponent = class TutorialComponent {
 
     protected displayPlanet(): void {
       let planet = Planet.listOfPlanets[0]
-      let fluids = &lt;IceGiant&gt;planet.fluids
+      let fluids = <IceGiant>planet.fluids
 
-      let newName = (&lt;HTMLInputElement&gt;someElement).value;
+      let newName = (<HTMLInputElement>someElement).value;
       Planet.listOfPlanets[planetIndex].planetName = newName;
     }
 
@@ -143,7 +143,7 @@ let TutorialComponent = class TutorialComponent {
   function createNewPlanet (name:string): void {
     let newPlanet = new IceGiant(name);
     Planet.listOfPlanets.push(newPlanet);
-    (&lt;IceGiant&gt;newPlanet).display();
+    (<IceGiant>newPlanet).display();
   }`;
         this.chainString = `class numbOp {
     private n:number;

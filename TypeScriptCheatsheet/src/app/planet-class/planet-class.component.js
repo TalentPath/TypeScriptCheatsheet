@@ -13,6 +13,7 @@ let PlanetClassComponent = class PlanetClassComponent {
     constructor() {
         this.edit = false;
         this.fakePlanet = new Planet_1.Planet('Earth', 2000, 'Sol');
+        this.showPlanetInfo = false;
         this.listOfPlanets = [new Planet_1.Planet('Earth', 2000, 'Sol'), new Planet_1.Planet('Mars', 3000, 'Sol')];
     }
     ngOnInit() {
@@ -27,6 +28,11 @@ let PlanetClassComponent = class PlanetClassComponent {
     editName(index, newName) {
         this.listOfPlanets[index].newName = newName;
         this.editMode();
+    }
+    displayInput(password) {
+        if (password === '') {
+            this.showPlanetInfo = true;
+        }
     }
 };
 PlanetClassComponent = __decorate([
