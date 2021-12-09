@@ -38,6 +38,12 @@
             <input type="checkbox" #hydrogen (click) = "addElement('hydrogen')" >
             <label for='hydrogen'>Hydrogen</label>
         </div>
+        <button 
+            [ngClass] = "planetType != 'none' ? 'show' : 'hide'" 
+            #submitPlanetBtn ngClass='btn' 
+            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, gases: elements})" 
+            >Submit
+        </button>
     </div>
 
     <div [ngClass]="planetType=='rocky' ? 'show' : 'hide'" #coreElements ngClass='checkbox-form'>
@@ -49,6 +55,12 @@
             <input type="checkbox" #nickel (click) = "addElement('nickel')" >
             <label for='nickel'>Nickel</label>
         </div>
+        <button 
+            [ngClass] = "planetType != 'none' ? 'show' : 'hide'" 
+            #submitPlanetBtn ngClass='btn' 
+            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, coreComponents: elements})" 
+            >Submit
+        </button>
     </div>
 
     <div [ngClass]="planetType=='ice' ? 'show' : 'hide'" #fluidElements ngClass='checkbox-form'>
@@ -64,14 +76,13 @@
             <input type="checkbox" #ammonia (click) = "addElement('ammonia')" >
             <label for='ammonia'>Ammonia</label>
         </div>
+        <button 
+            [ngClass] = "planetType != 'none' ? 'show' : 'hide'" 
+            #submitPlanetBtn ngClass='btn' 
+            (click) = "addPlanet(planetName.value, planetType, {size: convertStringToNumber(planetSize.value), parentStar:planetParent.value, fluidElements: elements})" 
+            >Submit
+        </button>
     </div>
-
-    <button 
-        [ngClass] = "planetType != 'none' ? 'show' : 'hide'" 
-        #submitPlanetBtn ngClass='btn' 
-        (click) = "addPlanet(planetName.value, convertStringToNumber(planetSize.value), planetParent.value)" 
-        >Submit
-    </button>
 
     <div>
         

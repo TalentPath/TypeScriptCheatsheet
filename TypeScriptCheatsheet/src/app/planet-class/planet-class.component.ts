@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Planet } from './Planet';
 import { RockyInfo, IceInfo, GasInfo, Info } from './interfaces'
+import GasGiant from "./GasGiant.js";
+import IceGiant from "./IceGiant.js";
+import RockyPlanet from "./RockyPlanet.js";
 
 @Component({
   selector: 'planet-class',
@@ -22,9 +25,23 @@ export class PlanetClassComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addPlanet(name:string, size:number, parentStar:string):void{
-    let newPlanet = new Planet(name, size, parentStar);
-    this.listOfPlanets.push(newPlanet)
+  addPlanet(name:string, type:string, info:Info):void{
+    let newPlanet:Planet
+
+    if (type === 'rocky') {
+      newPlanet = new RockyPlanet(name, info.size, info.parentStar, (<RockyInfo>info).coreComponents);
+        this.listOfPlanets.push(newPlanet);
+    }
+
+    if (type === 'gas') {
+      newPlanet = new GasGiant(name, info.size, info.parentStar, (<GasInfo>info).gases);
+        this.listOfPlanets.push(newPlanet);
+    }
+
+    if (type === 'ice') {
+      newPlanet = new IceGiant(name, info.size, info.parentStar, (<IceInfo>info).fluidElements);
+        this.listOfPlanets.push(newPlanet);
+    }
   }
 
   editMode(){
